@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media_index.css">
+    <script src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <h2 class="logo">Events &#128511;</h2>
+        <!-- navigation bar -->
+        <nav class="navigation">
+            <a href="index.html"><span>Home</span></a>
+            <a href="events.html"><span>Events</span></a>
+            <button class="btn_event_popup">Schedule Event</button>
+        </nav>
+
+    </header>
+
+    <!-- wrapper for submiting new event -->
+     <div class="wrapper">
+        <span class="icon_close">
+            <ion-icon name="close-outline"></ion-icon>
+        </span>
+
+        <div class="form_box_create_event create" id="event_form_div">
+            <h2>Schedule Events</h2>
+            <!-- form for inserting infromation and submiting it -->
+            <form action="" id="event_form">
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="flag-outline"></ion-icon>
+                    </span>
+                    <input type="text" id="event-title" required>
+                    <label>Title</label>
+                </div>
+
+                <div class="input-description-box">
+                    <span class="icon">
+                        <ion-icon name="document-text-outline"></ion-icon>
+                    </span>
+                    <label for="textarea">Description</label>
+                    <textarea name="textarea" id="textarea" cols="10" rows="50" required>
+                    </textarea>
+                </div>
+
+                <div class="choose-location-box">
+                    <span class="icon">
+                        <ion-icon name="map-outline"></ion-icon>
+                    </span>
+                    <select name="location" id="location" required>
+                        <option value="0">Choose Location</option>
+                    </select>
+                </div>
+
+                <div class="input-picture-box">
+                     <span class="icon" id="image_icon">
+                        <ion-icon name="image-outline"></ion-icon>
+                     </span>
+                     <input type="text" id="file">
+                     <label id="image_label">Image</label>
+                </div>
+
+                <div class="date_box">
+                    <div class="start-date-box">
+                        <a class="btn-start-date"> 
+                            <img src="svgs/calendar-days-svgrepo-com-green.svg" class="start_date_green" id="svg-date">
+                        
+                        </a>
+                        <label class="date_label_class" id="start_date_label_id">Start Date</label>
+                    </div>
+
+                    <div class="end-date-box">
+                        <a class="btn-end-date">
+                         <img src="svgs/calendar-days-svgrepo-com-red.svg" class="start_date_red" id="svg-date">
+                        
+                        </a>
+                     <label class="date_label_class" id="end_date_label_id">End Date</label>
+                    </div>
+                </div>
+
+                <button class="btn-submit" type="submit">Submit</button>
+            </form>
+               
+        </div>
+
+        <div class = "form_box_create_event start_date">
+            <h2>Start Date</h2>
+            <div class="calendar">
+                <!-- calendar header that shows current month and year -->
+                <div class="calendar_header">
+                    <button class="prev_month"> 
+                        <ion-icon name="chevron-back-outline"></ion-icon>
+                    </button>
+
+                    <div class="month_year" id="start_month_year"></div>
+
+                    <button class="next_month">
+                        <ion-icon name="chevron-forward-outline"></ion-icon>
+                    </button>
+                </div>
+
+                <div class="days_in_week">
+                        <span class="day">Mon</span>
+                        <span class="day">Tue</span>
+                        <span class="day">Wed</span>
+                        <span class="day">Thu</span>
+                        <span class="day">Fri</span>
+                        <span class="day">Sat</span>
+                        <span class="day">Sun</span>
+                </div>
+
+                <div class="days_in_month" id="start_days_in_month"></div>
+
+            </div>
+        </div>
+
+        <div class="form_box_create_event end_date">
+            <h2>End Date</h2>
+            <div class="calendar end_date">
+                <!-- calendar header that shows current month and year -->
+                <div class="calendar_header">
+                    <button class="prev_month"> 
+                        <ion-icon name="chevron-back-outline"></ion-icon>
+                    </button>
+
+                    <div class="month_year" id="end_month_year"></div>
+
+                    <button class="next_month">
+                        <ion-icon name="chevron-forward-outline"></ion-icon>
+                    </button>
+                </div>
+
+                <div class="days_in_week">
+                        <span class="day">Mon</span>
+                        <span class="day">Tue</span>
+                        <span class="day">Wed</span>
+                        <span class="day">Thu</span>
+                        <span class="day">Fri</span>
+                        <span class="day">Sat</span>
+                        <span class="day">Sun</span>
+                </div>
+
+                <div class="days_in_month" id="end_days_in_month"></div>
+
+            </div>
+        </div>
+
+     </div>   
+
+    <script src="script.js"></script>
+    <script src="city.js"></script>
+    <script src="calendar.js"></script>
+    <script src="getEvents.js"></script>
+</body>
+
+</html>

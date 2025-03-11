@@ -1,0 +1,146 @@
+@media only screen and (max-width: 600px) {
+    body {
+        background: url('background11.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    header {
+        padding: 10px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header .logo {
+        font-size: 24px;
+    }
+
+    .navigation {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    .navigation a {
+        font-size: 0.9em;
+        margin-left: 5px;
+    }
+
+    .navigation .btn_event_popup {
+        width: 100px;
+        height: 40px;
+        font-size: 0.9em;
+    }
+
+    .wrapper {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .wrapper .form_box_create_event {
+        padding: 15px;
+    }
+
+    .form_box_create_event h2 {
+        font-size: 1.5em;
+    }
+
+    .input-box {
+        margin: 20px 0;
+    }
+
+    .input-box label {
+        font-size: 0.9em;
+    }
+
+    .input-box input {
+        font-size: 0.9em;
+    }
+
+    .input-description-box textarea {
+        height: 80px;
+        font-size: 0.9em;
+    }
+
+    .choose-location-box {
+        max-width: 100%;
+    }
+
+    #location {
+        width: 100%;
+    }
+
+    .input-picture-box {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: left;
+        top: -10px;
+    }
+
+    #image_icon{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        top: 10px;
+    }
+
+    #image_label{
+        top: 10px;
+    }
+
+    #file {
+        width: 70%;
+        left: 80px;
+        margin-top: 10px;
+    }
+
+    .date_box {
+        width: 100%;
+        height: 100%;
+        flex-direction: row;
+        align-items: center;
+        margin: 0;
+        padding: 10px;
+    }
+
+    .date_box .date_label_class {
+        top: -90px;
+    }
+
+    .btn-start-date, .btn-end-date {
+        height: 60px;
+        width: 60px;
+    }
+
+    .btn-submit {
+        height: 40px;
+        font-size: 1em;
+    }
+
+    .form_box_create_event.start_date,
+    .form_box_create_event.end_date {
+        top: 50px;
+    }
+
+    .calendar {
+        height: auto;
+        padding: 5px;
+    }
+
+    .calendar_header {
+        padding: 5px;
+    }
+
+    .calendar_header button {
+        width: 30px;
+        height: 30px;
+    }
+
+    .days_in_week .day {
+        font-size: 0.8em;
+    }
+
+    .days_in_month .day {
+        font-size: 0.8em;
+    }
+}

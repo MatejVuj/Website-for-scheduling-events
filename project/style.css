@@ -1,0 +1,617 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background: #1747a0; */
+    background: url('background11.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: .6s;
+}
+
+header .logo{
+    font-size: 32px;
+    color: aliceblue;
+    border: 5px black;
+}
+
+.navigation a {
+    position: relative;
+    display: inline-block;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 10px;
+    /* transition: 1s; */
+}
+
+.navigation a::before,
+.navigation a::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+    /* transform-origin: right; */
+}
+.navigation a span::before,
+.navigation a span::after{
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    background: #fff;
+    border-radius: 5px;
+    transform: scaleY(0);
+    transition: transform 0.5s;
+    /* transform-origin: top; */
+}
+
+.navigation a::before{
+    left: 0;
+    top: -6px;
+    /* transition: transform 0.5s; */
+    transform-origin: left;
+}
+
+.navigation a::after{
+    left: 0;
+    bottom: -6px;
+    /* transition: transform 0.5s; */
+    transform-origin: right;
+}
+
+.navigation a span::before{
+    left: -6px;
+    transform-origin: bottom;
+}
+
+.navigation a span::after{
+    right: -6px;
+    transform-origin: top;
+}
+
+.navigation a:hover::before,
+.navigation a:hover::after{
+    transform: scaleX(1);
+}
+
+.navigation a:hover span::before,
+.navigation a:hover span::after{
+    transform: scaleY(1);
+}
+
+.navigation a:hover::before{
+    transform-origin: right;
+}
+
+.navigation a:hover::after{
+    transform-origin: left;
+}
+
+.navigation a:hover span::before{
+    transform-origin: top;
+}
+
+.navigation a:hover span::after{
+    transform-origin: bottom;
+}
+
+.navigation .btn_event_popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 10px;
+    transition: 0.5s ease;
+}
+
+.navigation .btn_event_popup:hover{
+    background: #fff;
+    color: #1747a0;
+    transition: 0.7s ease;
+}
+
+.wrapper{
+    position: relative;
+    width: 400px;
+    height: 700px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform 0.5s ease, height 0.2s ease;
+    transition: 0.5s ease-in-out;
+
+}
+
+.wrapper:hover{
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    transition: 0.5s ease-in-out;
+}
+
+.wrapper.active_popup{
+    transform: scale(1);
+}
+
+.wrapper.active {
+    height: 520px;
+}
+
+.wrapper .form_box_create_event{
+    width: 100%;
+    height: 80%;
+    padding: 30px;
+}
+
+.wrapper .form_box_create_event.create {
+    transform: translateX(0px);
+    transition: 1s ease;
+}
+
+.wrapper .form_box_create_event.start_date{
+    transform: translateX(-800px);
+    transition: 1s ease;
+}
+
+.wrapper .form_box_create_event.end_date {
+    transform: translateX(800px);
+    transition: 1s ease;
+}
+
+.wrapper.active_start_date .form_box_create_event.create {
+    /* display: none; */
+    transform: translateX(500px);
+    transition: 1s ease;
+}
+
+.wrapper.active_start_date .form_box_create_event.start_date {
+    transform: translateX(0px);
+    transition: 1s ease;
+}
+
+.wrapper.active_end_date .form_box_create_event.create {
+    /* display: none; */
+    transform: translateX(-400px);
+    transition: 1s ease;
+}
+
+.wrapper.active_end_date .form_box_create_event.end_date {
+    transform: translateX(0px);
+    transition: 1s ease;
+}
+
+.wrapper .icon_close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background-color: rgb(255, 255, 255);
+    font-size: 2em;
+    color: #1747a0;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+.form_box_create_event h2{
+    font-size: 2em;
+    color: #1747a0;
+    text-align: center;
+}
+
+.input-box{
+    position: relative;
+    width: 100%;
+    margin: 10px 0;
+    border-bottom: 2px solid #ffffff;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius:2px;
+    margin: 30px 0;
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #000000;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s ease;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -7px;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #000000;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-optical-sizing: 1.2em;
+    color: #ffffff;
+    line-height: 57px;
+    top: -20px;
+}
+
+.input-description-box textarea{
+    width: 100%;
+    height: 96px;
+    padding: 12px 16px;
+    background: transparent;
+    border: 1px solid #fdfdfd;
+    border-radius: 8px;
+    resize: none;
+    outline: none;
+    font-size: 1em;
+    color: #000000;
+}
+
+.input-description-box label{
+    position: relative;
+    top: 50%;
+    left: 0px;
+    font-size: 1em;
+    color: #000000;
+    font-weight: 500;
+}
+
+.choose-location-box{
+    position: relative;
+    max-width: 90%;
+    margin: 20px 0;
+}
+
+#location{
+    height: 30px;
+    width: 90%;
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+}
+
+.choose-location-box .icon{
+    position: relative;
+    top: 3px;
+}
+
+.input-picture-box{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 20px;
+    margin: 10px 0;
+}
+
+.input-picture-box .icon{
+    position: relative;
+    right: -1px;
+}
+
+.input-picture-box{
+    margin: 5px 0px;
+}
+
+#file{
+    position: absolute;
+    left: 73px;
+    background: transparent;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    color: #000000;
+    margin-right: 10px;
+    width: 260px;
+}
+
+.input-picture-box label{
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    top: -0px;
+    font-size: 1em;
+    color: #000000;
+    font-weight: 500;
+    margin: 0px 2px;
+}
+
+#svg-date{
+    position: relative;
+    width: 75px;
+    height: 75px;
+}
+
+.date_box{
+    width: 350px;
+    height: 150px;
+    top: 20px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    margin: 0px 0px 0px -5px;
+    padding: 20px 20px;
+}
+
+.date_box .date_label_class{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: bottom ;
+    top: -105px;
+    left: 0px;
+}
+
+#start_date_label_id{
+    position: relative;
+    left: 2px;
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 500;
+    margin: 0px 0px 0px 0px;
+}
+
+#end_date_label_id{
+    position: relative;
+    left: 5px;
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 500;
+    text-shadow:rgba(0, 0, 0, 0.979);
+    margin: 0px 0px 0px 0px;
+}
+
+.btn-start-date, .btn-end-date{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    height: 80px;
+    width: 80px; 
+    border-width: 120px;
+    border: 2px inset #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+    overflow: hidden;
+}
+
+.wrapper:hover .btn-start-date:hover,
+.wrapper:hover .btn-end-date:hover{
+    background-color: #fff;
+    /* border-color: #1747a0; */
+    border: 2px outset #ffffff;
+    transition: 0.2s ease-in;
+}
+
+.btn-submit{
+    width: 100%;
+    height: 50px;
+    border: 2px solid whitesmoke;
+    border-radius: 10px;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin: 10px 0;
+    margin-bottom: 50px;
+    transition: 0.7s ease-out;
+}
+
+.btn-submit:hover{
+    background: #fff;
+    color: #1747a0;
+    transition: 0.5s ease-in;
+}
+
+.form_box_create_event.start_date h2{
+    color: #1747a0;
+    text-align: center;
+    text-wrap: wrap;
+}
+
+.form_box_create_event.start_date{
+    position: absolute;
+    width: 100%;
+    height: 80%;     /*40px */
+    padding: 30px;
+    top: 75px;
+}
+
+.form_box_create_event.end_date{
+    position: absolute;
+    width: 100%;
+    height: 100%;     /*40px */
+    padding: 30px;
+    top: 70px;
+}
+
+.calendar{
+    display: block;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* width: 100%; */
+    height: 60%;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.end_date .calendar{
+    height: 43%;
+}
+
+.start_date .calendar{
+    height: 55%;
+}
+
+.calendar_header{
+    /* display: relative; */
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+    text-align: center;
+    padding: 10px;
+    color: #ffffff;
+
+}
+
+.calendar_header .month_year{
+    top: 30px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar_header button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    transition: 0.25s;
+}
+
+.calendar_header button:hover{
+    background-color: #1747a0;
+    color: #ffffff;
+    transition: 0.25s;
+}
+
+.days_in_week{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+}
+
+.days_in_week .day{
+    text-align: center;
+    text-decoration:underline;
+    padding: 5px;
+    color: aliceblue;
+    border-radius: 20px;
+    transition: 0.25s;
+}
+
+.days_in_week .day:hover{
+    text-decoration: none;
+    background-color: #1747a0;
+    color: #ffffff;
+    transition: 0.25s;
+    border-radius: 20px;
+}
+
+.days_in_month{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    text-align: center;
+}
+
+.days_in_month .day{
+    padding: 5px;
+    color: aliceblue;
+    border-radius: 20px;
+    transition: 0.25s;
+}
+
+.day:hover{
+    background-color: #1747a0;
+    color: #ffffff;
+    transition: 0.25s;
+    border-radius: 20px;
+}
+
+.day.inactive{
+    color: #ffffff7a;
+}
+
+.day.inactive:hover{
+    color: rgba(255, 255, 255, 0.884);
+}
+
+.day.active{
+    border: 1px solid;
+    border-color: #f0f0f0;
+}
+
+.day.active.selected_date_start{
+    background-color: #1747a0;
+    border: none;
+}
+
+.day.active.selected_date_end{
+    background-color: #1747a0;
+    border: none;
+}
+
+.selected_date_start{
+    background-color: #1747a0;
+}
+
+.selected_date_end{
+    background-color: #1747a0;
+}

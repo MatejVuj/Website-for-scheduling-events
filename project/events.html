@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleEvents.css">
+    <link rel="stylesheet" href="media_events.css">
+    <script src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons.js"></script>
+
+</head>
+<body>
+    <header>
+        <h2 class="logo">Events &#128511;</h2>
+        <!-- navigation bar -->
+        <nav class="navigation">
+            <a href="index.html">
+                <span>Home</span>
+            </a>
+            <select id="filter_locations">
+                <span class="span_a">Search location</span>
+            </select>
+            <a href="events.html">
+                <span>Events</span>
+            </a>
+        </nav>
+    </header>
+
+    <div class="event_container">
+        <!-- showing events from local storage -->
+        <div class="events" id="events">
+        
+        </div>
+    </div>
+
+    <script src="displayEvents.js"></script>
+
+</body>
+</html>
